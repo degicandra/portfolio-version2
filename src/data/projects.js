@@ -1,3 +1,9 @@
+import portfolioV1 from '../assets/images/projects/portfolio-v1.png'
+import tvDisplay from '../assets/images/projects/tv-display.png'
+import riskRegister from '../assets/images/projects/risk-register.png'
+import ticketingApp from '../assets/images/projects/ticketing-app.png'
+import onlineRegistration from '../assets/images/projects/online-registration.png'
+
 const projects = [
   {
     id: 'p1',
@@ -6,7 +12,7 @@ const projects = [
     tags: ['Vue.js', 'JavaScript', 'HTML', 'CSS'],
     colorA: '#ff6b6b',
     colorB: '#4ecdc4',
-    image: '../../assets/images/projects/portfolio-v1.png',
+    image: portfolioV1,
     link: 'https://github.com/degicandra/degi-portfolio'
   },
   {
@@ -16,7 +22,7 @@ const projects = [
     tags: ['PHP', 'MySQL', 'CSS', 'Bootstrap', 'JavaScript'],
     colorA: '#7F00FF',
     colorB: '#00DBDE',
-    image: '../../assets/images/projects/tv-display.png',
+    image: tvDisplay,
     link: 'https://github.com/degicandra/landing-page-hospital-lobby'
   },
   {
@@ -26,7 +32,7 @@ const projects = [
     tags: ['Supabase', 'Vue.js', 'JavaScript'],
     colorA: '#7F00FF',
     colorB: '#E100FF',
-    image: '../../assets/images/projects/risk-register.png',
+    image: riskRegister,
     link: '#'
   },
   {
@@ -36,7 +42,7 @@ const projects = [
     tags: ['Vue.js', 'Supabase', 'Tailwind CSS'],
     colorA: '#00DBDE',
     colorB: '#FC00FF',
-    image: '../../assets/images/projects/ticketing-app.png',
+    image: ticketingApp,
     link: 'https://github.com/degicandra/ticketing-app'
   },
   {
@@ -46,7 +52,7 @@ const projects = [
     tags: ['Javascript', 'MySQL', 'Bootstrap', 'PHP'],
     colorA: '#ffd6a5',
     colorB: '#fdffb6',
-    image: '../../assets/images/projects/online-registration.png',
+    image: onlineRegistration,
     link: 'https://github.com/degicandra/pendaftaran_online'
   },
   {

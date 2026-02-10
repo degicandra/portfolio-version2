@@ -1,4 +1,5 @@
 import React from 'react'
+import profileImg from '../assets/images/profile2.png'
 
 export default function Home({ onSeeProjects }) {
   return (
@@ -20,7 +21,7 @@ export default function Home({ onSeeProjects }) {
         </div>
         <div className="hero-image">
           <img 
-            src="../../assets/images/profile2.png"
+            src={profileImg}
             alt="Profile" 
             className="profile-img"
           />
