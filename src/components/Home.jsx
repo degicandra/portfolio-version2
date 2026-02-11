@@ -1,5 +1,6 @@
 import React from 'react'
 import profileImg from '../assets/images/profile2.png'
+import downloadCV from '../assets/doc/CV-Degi-Candra-Kamarullah.pdf'
 
 export default function Home({ onSeeProjects }) {
   return (
@@ -12,7 +13,7 @@ export default function Home({ onSeeProjects }) {
             <button onClick={onSeeProjects}>See projects</button>
             <a
               className="secondary-btn"
-              href="/assets/doc/CV-Degi-Candra-Kamarullah.pdf"
+              href={downloadCV}
               download="CV-Degi-Candra-Kamarullah.pdf"
             >
               Download CV
