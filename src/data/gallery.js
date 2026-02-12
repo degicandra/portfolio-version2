@@ -1,51 +1,51 @@
 const galleryImages = [
   {
     id: 'g1',
-    url: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?w=1200&q=60&auto=format&fit=crop',
-    title: 'Mountain Landscape',
-    category: 'Nature'
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/night-landscape.jpg',
+    title: 'Night Landscape',
+    category: 'Cityscape'
   },
   {
     id: 'g2',
-    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=60&auto=format&fit=crop',
-    title: 'Ocean Waves',
-    category: 'Nature'
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/DSCF2976.JPG',
+    title: 'Bogor Street Market',
+    category: 'Street Photography'
   },
   {
     id: 'g3',
-    url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=60&auto=format&fit=crop',
-    title: 'Creative Workspace',
-    category: 'Workspace'
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/1735429773951.jpg',
+    title: 'City Lights',
+    category: 'Cityscape'
   },
   {
     id: 'g4',
-    url: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200&q=60&auto=format&fit=crop',
-    title: 'City Architecture',
-    category: 'Architecture'
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/IMG_1792.JPG',
+    title: 'Mountain View',
+    category: 'Nature'
   },
   {
     id: 'g5',
-    url: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=60&auto=format&fit=crop',
-    title: 'Technology Setup',
-    category: 'Technology'
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/DSCF4419.jpg',
+    title: 'Creative Composition',
+    category: 'Design'
   },
   {
     id: 'g6',
-    url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=60&auto=format&fit=crop',
-    title: 'Coding Environment',
-    category: 'Technology'
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/DSCF2979.JPG',
+    title: 'Artistic Vision',
+    category: 'Design'
   },
   {
     id: 'g7',
-    url: 'https://images.unsplash.com/photo-1693159682618-074078ed271e?w=1200&q=60&auto=format&fit=crop',
-    title: 'Modern Office',
-    category: 'Workspace'
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/IMG_9745.JPG',
+    title: 'Portrait Photography',
+    category: 'Photography'
   },
   {
     id: 'g8',
-    url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=60&auto=format&fit=crop',
-    title: 'Data Visualization',
-    category: 'Design'
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/DSCF2570.JPG',
+    title: 'Landscape Shot',
+    category: 'Nature'
   }
 ]
 

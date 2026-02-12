@@ -134,9 +134,9 @@ export default function Gallery() {
     <section id="gallery" className="section" data-aos="fade-up">
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px'}}>
         <h2 style={{margin: 0}}>Gallery</h2>
-        <a href="/gallery.html" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent)', textDecoration: 'none', fontSize: '14px', fontWeight: '600'}}>More Photos →</a>
+        <a href="/gallery.html" rel="noopener noreferrer" style={{color: 'var(--accent)', textDecoration: 'none', fontSize: '14px', fontWeight: '600'}}>More Photos →</a>
       </div>
-      <p className="muted">Photography is one of my hobbies. Here's a curated selection of visual work, UI experiments, and photography shots.</p>
+      <p className="muted">Photography is one of my hobbies. Here's a curated selection of my photography shots.</p>
       <div className="gallery-grid">
         {galleryImages.map((image, i) => (
           <ImageTile 

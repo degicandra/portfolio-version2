@@ -1,5 +1,22 @@
 import React, { useState } from 'react'
-import { IoCloseOutline } from 'react-icons/io5'
+import { IoCloseOutline, IoArrowBack } from 'react-icons/io5'
+import galleryPageImages from '../data/galleryPageImages' // Gallery images data - imported from ../data/galleryPageImages.js
+
+// Add mobile responsive styles
+const mobileStyles = `
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr !important;
+      auto-rows: 250px !important;
+    }
+    .gallery-card-large,
+    .gallery-card-wide,
+    .gallery-card-tall {
+      grid-column: span 1 !important;
+      grid-row: span 1 !important;
+    }
+  }
+`
 
 // Color constants
 const COLORS = {
@@ -25,117 +42,7 @@ function ImageWithFallback({ src, alt, style }) {
   )
 }
 
-// Gallery images data
-const GALLERY_IMAGES = [
-  {
-    url: "https://images.unsplash.com/photo-1697257378991-b57497dddc69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydCUyMGdhbGxlcnl8ZW58MXx8fHwxNzcwMjkxNTUzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Abstract Art Installation",
-    category: "Design",
-    size: "large",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1615406020658-6c4b805f1f30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBkZXNpZ258ZW58MXx8fHwxNzcwMzA3NjY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Modern Architecture",
-    category: "Architecture",
-    size: "tall",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1742440710226-450e3b85c100?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHN0dWRpb3xlbnwxfHx8fDE3NzAyNTM4NTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Creative Studio Space",
-    category: "Interior",
-    size: "medium",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1643116774075-acc00caa9a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGV8ZW58MXx8fHwxNzcwMjkwODYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Code & Development",
-    category: "Technology",
-    size: "medium",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1693159682618-074078ed271e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdvcmtzcGFjZSUyMGRlc2t8ZW58MXx8fHwxNzcwMzA1MzM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Creative Workspace",
-    category: "Workspace",
-    size: "wide",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1697257378991-b57497dddc69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydCUyMGdhbGxlcnl8ZW58MXx8fHwxNzcwMjkxNTUzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Gallery Exhibition",
-    category: "Art",
-    size: "medium",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1615406020658-6c4b805f1f30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBkZXNpZ258ZW58MXx8fHwxNzcwMzA3NjY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Architectural Design",
-    category: "Architecture",
-    size: "tall",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1742440710226-450e3b85c100?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHN0dWRpb3xlbnwxfHx8fDE3NzAyNTM4NTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Studio Design",
-    category: "Design",
-    size: "medium",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1693159682618-074078ed271e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdvcmtzcGFjZSUyMGRlc2t8ZW58MXx8fHwxNzcwMzA1MzM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Workspace Setup",
-    category: "Workspace",
-    size: "wide",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1697257378991-b57497dddc69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydCUyMGdhbGxlcnl8ZW58MXx8fHwxNzcwMjkxNTUzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Abstract Art Installation",
-    category: "Design",
-    size: "large",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1615406020658-6c4b805f1f30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBkZXNpZ258ZW58MXx8fHwxNzcwMzA3NjY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Modern Architecture",
-    category: "Architecture",
-    size: "tall",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1742440710226-450e3b85c100?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHN0dWRpb3xlbnwxfHx8fDE3NzAyNTM4NTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Creative Studio Space",
-    category: "Interior",
-    size: "medium",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1643116774075-acc00caa9a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGV8ZW58MXx8fHwxNzcwMjkwODYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Code & Development",
-    category: "Technology",
-    size: "medium",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1693159682618-074078ed271e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdvcmtzcGFjZSUyMGRlc2t8ZW58MXx8fHwxNzcwMzA1MzM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Creative Workspace",
-    category: "Workspace",
-    size: "wide",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1697257378991-b57497dddc69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydCUyMGdhbGxlcnl8ZW58MXx8fHwxNzcwMjkxNTUzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Gallery Exhibition",
-    category: "Art",
-    size: "medium",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1615406020658-6c4b805f1f30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBkZXNpZ258ZW58MXx8fHwxNzcwMzA3NjY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Architectural Design",
-    category: "Architecture",
-    size: "tall",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1742440710226-450e3b85c100?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHN0dWRpb3xlbnwxfHx8fDE3NzAyNTM4NTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Studio Design",
-    category: "Design",
-    size: "medium",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1693159682618-074078ed271e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdvcmtzcGFjZSUyMGRlc2t8ZW58MXx8fHwxNzcwMzA1MzM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Workspace Setup",
-    category: "Workspace",
-    size: "wide",
-  },
-]
+
 
 // Reusable style objects
 const styles = {
@@ -192,6 +99,12 @@ const styles = {
     autoRows: '280px',
     gap: '16px',
     marginBottom: '32px'
+  },
+  '@media (max-width: 768px)': {
+    grid: {
+      gridTemplateColumns: '1fr',
+      autoRows: '250px'
+    }
   },
   imageCard: (size) => {
     let gridColumn = 'span 1'
@@ -311,9 +224,12 @@ const styles = {
 
 // Gallery card component
 function GalleryCard({ image, index, onSelect, onImageHover }) {
+  const sizeClass = `gallery-card-${image.size}`
+  
   return (
     <div
       key={index}
+      className={sizeClass}
       style={styles.imageCard(image.size)}
       onClick={() => onSelect(index)}
       onMouseEnter={(e) => {
@@ -382,8 +298,50 @@ function Lightbox({ image, onClose }) {
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState(null)
 
+  const handleBack = () => {
+    window.history.back()
+  }
+
   return (
     <div style={styles.container}>
+      <style>{mobileStyles}</style>
+      
+      {/* Back Arrow Button */}
+      <button
+        onClick={handleBack}
+        style={{
+          position: 'fixed',
+          top: '24px',
+          left: '24px',
+          zIndex: 100,
+          background: 'linear-gradient(135deg, rgba(127,0,255,0.2), rgba(127,0,255,0.1))',
+          border: '1px solid rgba(127,0,255,0.3)',
+          borderRadius: '10px',
+          padding: '12px 16px',
+          color: '#e6eef6',
+          cursor: 'pointer',
+          display: selectedImage !== null ? 'none' : 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '24px',
+          transition: 'all 0.28s ease',
+          backdropFilter: 'blur(4px)'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(127,0,255,0.4), rgba(127,0,255,0.2))'
+          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.6)'
+          e.currentTarget.style.transform = 'translateX(-4px)'
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(127,0,255,0.2), rgba(127,0,255,0.1))'
+          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.3)'
+          e.currentTarget.style.transform = 'translateX(0)'
+        }}
+        title="Back to home"
+      >
+        <IoArrowBack />
+      </button>
+
       <div style={styles.wrapper}>
         {/* Header Section */}
         <div style={styles.header}>
@@ -394,8 +352,8 @@ export default function GalleryPage() {
         </div>
 
         {/* Gallery Grid */}
-        <div style={styles.grid}>
-          {GALLERY_IMAGES.map((image, index) => (
+        <div className="gallery-grid" style={styles.grid}>
+          {galleryPageImages.map((image, index) => (
             <GalleryCard 
               key={index}
               image={image} 
@@ -409,7 +367,7 @@ export default function GalleryPage() {
       {/* Lightbox Modal */}
       {selectedImage !== null && (
         <Lightbox 
-          image={GALLERY_IMAGES[selectedImage]} 
+          image={galleryPageImages[selectedImage]} 
           onClose={() => setSelectedImage(null)} 
         />
       )}
