@@ -46,6 +46,12 @@ const galleryImages = [
     url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/DSCF2570.JPG',
     title: 'Landscape Shot',
     category: 'Nature'
+  },
+  {
+    id: 'g8',
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/DSCF2570.JPG',
+    title: 'Landscape Shot',
+    category: 'Nature'
   }
 ]
 
