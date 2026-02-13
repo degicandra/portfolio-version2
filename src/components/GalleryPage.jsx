@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IoCloseOutline, IoArrowBack } from 'react-icons/io5'
+import { IoCloseOutline, IoArrowBack } from 'react-icons/io5' //icon tombol back dan close
 import galleryPageImages from '../data/galleryPageImages' // Gallery images data - imported from ../data/galleryPageImages.js
 
 // Add mobile responsive styles
