@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { IoCloseOutline, IoArrowBack } from 'react-icons/io5' //icon tombol back dan close
 import galleryPageImages from '../data/galleryPageImages' // Gallery images data - imported from ../data/galleryPageImages.js
 
@@ -28,13 +28,36 @@ const COLORS = {
   gray: '#d1d5db'
 }
 
+function optimizeUrl(url, width) {
+  if (!url) return url
+  const isImageKit = url.includes('ik.imagekit.io')
+  if (!isImageKit) return url
+  const hasQuery = url.includes('?')
+  const tr = `tr=f-auto,q-60,w-${width}`
+  return `${url}${hasQuery ? '&' : '?'}${tr}`
+}
+
+function buildSrcSet(url) {
+  const widths = [320, 640, 960, 1280]
+  return widths.map(w => `${optimizeUrl(url, w)} ${w}w`).join(', ')
+}
+
 // Image component with error fallback
-function ImageWithFallback({ src, alt, style }) {
+function ImageWithFallback({ src, alt, style, size }) {
   const [error, setError] = useState(false)
+  const baseWidth = size === 'large' || size === 'wide' ? 960 : 640
+  const srcSet = useMemo(() => buildSrcSet(src), [src])
+  const optimized = useMemo(() => optimizeUrl(src, baseWidth), [src, baseWidth])
+  const sizes = size === 'large' || size === 'wide' ? '(max-width: 768px) 100vw, 66vw' : '(max-width: 768px) 100vw, 33vw'
   
   return (
     <img 
-      src={error ? 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect fill="%23333" width="400" height="300"/%3E%3C/svg%3E' : src} 
+      src={error ? 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect fill="%23333" width="400" height="300"/%3E%3C/svg%3E' : optimized} 
+      srcSet={error ? undefined : srcSet}
+      sizes={error ? undefined : sizes}
+      loading="lazy"
+      decoding="async"
+      fetchpriority="low"
       alt={alt} 
       style={style}
       onError={() => setError(true)}
@@ -243,6 +266,7 @@ function GalleryCard({ image, index, onSelect, onImageHover }) {
         src={image.url}
         alt={image.title}
         style={styles.image}
+        size={image.size}
       />
       <div 
         style={styles.overlay}
@@ -297,6 +321,7 @@ function Lightbox({ image, onClose }) {
 // Main component
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState(null)
+  const [visibleCount, setVisibleCount] = useState(9)
 
   const handleBack = () => {
     window.history.back()
@@ -351,9 +376,10 @@ export default function GalleryPage() {
           </p>
         </div>
 
+
         {/* Gallery Grid */}
         <div className="gallery-grid" style={styles.grid}>
-          {galleryPageImages.map((image, index) => (
+          {galleryPageImages.slice(0, visibleCount).map((image, index) => (
             <GalleryCard 
               key={index}
               image={image} 
@@ -362,6 +388,38 @@ export default function GalleryPage() {
             />
           ))}
         </div>
+        {visibleCount < galleryPageImages.length && (
+          <div style={{display: 'flex', justifyContent: 'center', marginBottom: '32px'}}>
+            <button
+              onClick={() => setVisibleCount(Math.min(visibleCount + 9, galleryPageImages.length))}
+              style={{
+                padding: '10px 24px',
+                borderRadius: '24px',
+                border: '1px solid rgba(127,0,255,0.4)',
+                background: 'linear-gradient(135deg, rgba(127,0,255,0.15), rgba(127,0,255,0.08))',
+                color: '#e6eef6',
+                cursor: 'pointer',
+                fontSize: '14px',
+                fontWeight: '600',
+                transition: 'all 0.2s ease',
+                backdropFilter: 'blur(4px)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(127,0,255,0.3), rgba(127,0,255,0.18))'
+                e.currentTarget.style.borderColor = 'rgba(127,0,255,0.6)'
+                e.currentTarget.style.transform = 'translateY(-2px)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(127,0,255,0.15), rgba(127,0,255,0.08))'
+                e.currentTarget.style.borderColor = 'rgba(127,0,255,0.4)'
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
+              title="Load more photos"
+            >
+              View More
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Lightbox Modal */}

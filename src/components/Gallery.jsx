@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import galleryImages from '../data/gallery'
+
+function optimizeUrl(url, width) {
+  if (!url) return url
+  const isImageKit = url.includes('ik.imagekit.io')
+  if (!isImageKit) return url
+  const hasQuery = url.includes('?')
+  const tr = `tr=f-auto,q-60,w-${width}`
+  return `${url}${hasQuery ? '&' : '?'}${tr}`
+}
+
+function buildSrcSet(url) {
+  const widths = [320, 640, 960, 1280]
+  return widths.map(w => `${optimizeUrl(url, w)} ${w}w`).join(', ')
+}
 
 function ImageTile({ image, index, onImageClick }) {
   const [imageError, setImageError] = useState(false)
+  const srcSet = useMemo(() => buildSrcSet(image.url), [image.url])
+  const src = useMemo(() => optimizeUrl(image.url, 640), [image.url])
   
   const handleError = () => {
     setImageError(true)
@@ -36,7 +52,6 @@ function ImageTile({ image, index, onImageClick }) {
     <div 
       className="tile enhanced-tile" 
       key={index} 
-      style={{backgroundImage: `url(${image.url})`}} 
       data-aos="zoom-in" 
       data-aos-delay={index*80}
       onClick={() => onImageClick(image, index)}
@@ -46,15 +61,15 @@ function ImageTile({ image, index, onImageClick }) {
           <div className="view-icon">👁️</div>
         </div>
       </div>
-      <img 
-        src={image.url} 
-        alt={image.title || `Gallery item ${index + 1}`} 
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          display: 'none'
-        }}
+      <img
+        src={src}
+        srcSet={srcSet}
+        sizes="(max-width: 768px) 100vw, 33vw"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+        alt={image.title || `Gallery item ${index + 1}`}
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
         onError={handleError}
       />
     </div>
@@ -72,7 +87,7 @@ function ImageViewer({ image, currentIndex, total, onClose, onNext, onPrev }) {
         <button className="viewer-nav viewer-next" onClick={onNext} disabled={currentIndex === total - 1}>›</button>
         
         <div className="viewer-image-container">
-          <img src={image.url} alt={image.title} className="viewer-image" />
+          <img src={image.url} alt={image.title} className="viewer-image" decoding="async" />
         </div>
         
         <div className="viewer-info">
