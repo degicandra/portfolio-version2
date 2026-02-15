@@ -168,7 +168,7 @@ const styles = {
   imageCategory: {
     fontSize: '12px',
     color: COLORS.gray,
-    margin: 0
+    margin: 0,
   },
   lightbox: {
     position: 'fixed',

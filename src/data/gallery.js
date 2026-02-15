@@ -49,7 +49,7 @@ const galleryImages = [
   },
   {
     id: 'g9',
-    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/DSCF2570.JPG',
+    url: 'https://ik.imagekit.io/degicandra/degicandra%20gallery%20web/mykonos-downtoearth.jpg',
     title: 'Landscape Shot',
     category: 'Nature'
   }

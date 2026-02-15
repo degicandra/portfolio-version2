@@ -24,7 +24,7 @@ export default function About() {
     <section id="about" className="section" data-aos="fade-right">
       <h2>About</h2>
       <p>
-        I'm an IT professional with over 5 years of hands-on experience in business application management, technical support, data analysis, and web development. My career has been driven by a passion for solving complex problems and delivering robust solutions that drive business value.
+        I'm an IT professional with over 6 years of hands-on experience in business application management, technical support, data analysis, and web development. My career has been driven by a passion for solving complex problems and delivering robust solutions that drive business value.
       </p>
       <p>
         Throughout my career, I've demonstrated strong expertise in troubleshooting critical system issues, managing large-scale system migrations, and collaborating across departments to translate business needs into technical requirements. I have a proven track record of ensuring optimal application performance, data integrity, and compliance with security protocols.
