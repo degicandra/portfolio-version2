@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import projects from '../data/projects'
 
 function ImageWithFallback({ src, fallbackColorA, fallbackColorB, style }) {
@@ -41,6 +42,8 @@ function ImageWithFallback({ src, fallbackColorA, fallbackColorB, style }) {
 }
 
 export default function Projects() {
+  const navigate = useNavigate()
+  
   return (
     <section id="projects" className="section projects" data-aos="zoom-in-up">
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px'}}>
@@ -60,9 +63,15 @@ export default function Projects() {
                   width: '100%'
                 }}
               />
-              <a href={p.link} target="_blank" rel="noopener noreferrer" className="view-project-btn">
-                View Project
-              </a>
+              <div className="project-buttons">
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="view-project-btn">
+                  View Project
+                </a>
+                <a href={p.repo} target="_blank" rel="noopener noreferrer" className="view-repo-btn">
+                  View Repository
+                </a>
+              </div>
+              <div className="click-overlay" onClick={() => navigate(`/project/${p.id}`)}></div>
             </div>
             <div className="card-body">
               <h3>{p.title}</h3>

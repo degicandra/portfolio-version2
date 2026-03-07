@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import Home from './components/Home'
 import About from './components/About'
@@ -8,6 +9,7 @@ import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import CursorSpotlight from './components/CursorSpotlight'
 import BackToTop from './components/BackToTop'
+import ProjectDetail from './components/ProjectDetail'
 
 export default function App() {
   const sections = [
@@ -66,30 +68,37 @@ export default function App() {
   }
 
   return (
-    <div className="app-root" ref={containerRef}>
-      <CursorSpotlight />
-      <Sidebar items={sections} active={active} onNavigate={scrollTo} className={sidebarOpen ? 'active' : ''} />
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <div className="app-root" ref={containerRef}>
+            <CursorSpotlight />
+            <Sidebar items={sections} active={active} onNavigate={scrollTo} className={sidebarOpen ? 'active' : ''} />
 
-      <button 
-        className={`hamburger ${sidebarOpen ? 'active' : ''}`}
-        onClick={toggleSidebar}
-        aria-label="Toggle navigation menu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+            <button 
+              className={`hamburger ${sidebarOpen ? 'active' : ''}`}
+              onClick={toggleSidebar}
+              aria-label="Toggle navigation menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
 
-      <main className="content">
-        <Home onSeeProjects={() => scrollTo('projects')} />
-        <About />
-        <Experience />
-        <Projects />
-        <Gallery />
-        <Contact />
-      </main>
-      
-      <BackToTop />
-    </div>
+            <main className="content">
+              <Home onSeeProjects={() => scrollTo('projects')} />
+              <About />
+              <Experience />
+              <Projects />
+              <Gallery />
+              <Contact />
+            </main>
+            
+            <BackToTop />
+          </div>
+        } />
+        <Route path="/project/:id" element={<ProjectDetail />} />
+      </Routes>
+    </Router>
   )
 }
