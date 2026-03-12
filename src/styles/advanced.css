@@ -1,0 +1,653 @@
+/* Advanced Portfolio Animations & Effects */
+
+/* Color Palette - Premium Blue */
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: #60a5fa;
+  --bg: #0f1419;
+  --bg-dark: #0a0f15;
+  --bg-light: #1a202c;
+  --text: #e0e5ec;
+  --text-muted: #a0aec0;
+  --accent: #3b82f6;
+  --success: #10b981;
+  --border: rgba(59, 130, 246, 0.1);
+  --border-light: rgba(59, 130, 246, 0.05);
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Urbanist', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-accent: 'Space Grotesk', sans-serif;
+  --font-alt: 'Outfit', sans-serif;
+}
+
+/* Smooth scrolling & transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ======================== ADVANCED ANIMATIONS ======================== */
+
+/* Background animations - Floating orbs */
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(80px, -60px) scale(1);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Mesh gradient shift animation */
+@keyframes meshShift {
+  0% {
+    background: linear-gradient(
+      45deg,
+      #3b82f6 0%,
+      transparent 40%,
+      #1e3a8a 100%
+    );
+  }
+  50% {
+    background: linear-gradient(
+      225deg,
+      #1e40af 0%,
+      transparent 40%,
+      #3b82f6 100%
+    );
+  }
+  100% {
+    background: linear-gradient(
+      45deg,
+      #3b82f6 0%,
+      transparent 40%,
+      #1e3a8a 100%
+    );
+  }
+}
+
+/* Alternative mesh shift - rotated angle */
+@keyframes meshShiftAlt {
+  0% {
+    background: linear-gradient(
+      135deg,
+      #1e3a8a 0%,
+      transparent 40%,
+      #3b82f6 100%
+    );
+  }
+  50% {
+    background: linear-gradient(
+      315deg,
+      #3b82f6 0%,
+      transparent 40%,
+      #1e40af 100%
+    );
+  }
+  100% {
+    background: linear-gradient(
+      135deg,
+      #1e3a8a 0%,
+      transparent 40%,
+      #3b82f6 100%
+    );
+  }
+}
+
+/* Slow mesh shift - slower animation */
+@keyframes meshShiftSlow {
+  0% {
+    background: linear-gradient(
+      90deg,
+      #0f1419 0%,
+      #3b82f6 50%,
+      #0f1419 100%
+    );
+  }
+  50% {
+    background: linear-gradient(
+      270deg,
+      #0f1419 0%,
+      #1e40af 50%,
+      #0f1419 100%
+    );
+  }
+  100% {
+    background: linear-gradient(
+      90deg,
+      #0f1419 0%,
+      #3b82f6 50%,
+      #0f1419 100%
+    );
+  }
+}
+
+/* Glow pulse for background accents */
+@keyframes bgGlowPulse {
+  0%, 100% {
+    box-shadow: inset 0 0 60px rgba(59, 130, 246, 0.05), 0 0 100px rgba(59, 130, 246, 0.02);
+  }
+  50% {
+    box-shadow: inset 0 0 80px rgba(59, 130, 246, 0.1), 0 0 120px rgba(59, 130, 246, 0.05);
+  }
+}
+
+/* Ambient light animation */
+@keyframes ambientShift {
+  0%, 100% {
+    background-color: rgba(15, 20, 25, 1);
+  }
+  50% {
+    background-color: rgba(20, 30, 40, 0.8);
+  }
+}
+
+/* Subtle entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Zoom entrance */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Subtle float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), inset 0 0 30px rgba(59, 130, 246, 0.15);
+  }
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Rotate continuous */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Scale pulse */
+@keyframes scalePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Slide in from bottom */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Micro-interactions - Underline reveal */
+@keyframes underlineReveal {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Micro-interactions - Smooth scale on hover */
+@keyframes smoothScale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Micro-interactions - Subtle pulse */
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+}
+
+/* Micro-interactions - Text glow on hover */
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 0 rgba(59, 130, 246, 0);
+  }
+  to {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+  }
+}
+
+/* Micro-interactions - Smooth slide from left */
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-8px);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Micro-interactions - Icon rotate on hover */
+@keyframes iconRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(8deg) scale(1.1);
+  }
+}
+
+/* Micro-interactions - Smooth background shift */
+@keyframes bgShift {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* ======================== UTILITY ANIMATIONS ======================== */
+
+.animate-fade-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Micro-interaction utility classes */
+.micro-hover {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.micro-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+}
+
+.micro-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.micro-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.micro-smooth-text {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.micro-smooth-text:hover {
+  color: var(--primary);
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.micro-scale {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.micro-scale:hover {
+  transform: scale(1.03);
+}
+
+.micro-pulse-light {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+.micro-slide-in {
+  animation: slideFromLeft 0.5s ease-out;
+}
+
+/* ======================== INTERACTIVE ELEMENTS ======================== */
+
+/* Smooth interactive buttons */
+button, a, [role="button"] {
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Smooth hover effects */
+button:hover:not(:disabled),
+a:hover {
+  transform: translateY(-2px);
+  transition: all 0.15s ease;
+}
+
+/* ======================== TEXT & TYPOGRAPHY ======================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ======================== CONTAINERS ======================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 36px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 20px; }
+  .section { padding: 60px 0; }
+}
+
+/* ======================== CARDS & BOXES ======================== */
+
+.card {
+  background: rgba(26, 32, 44, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: rgba(26, 32, 44, 0.7);
+  border-color: rgba(59, 130, 246, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.1);
+}
+
+/* Glass morphism light effect */
+.glass {
+  background: rgba(26, 32, 44, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+/* ======================== GRADIENTS ======================== */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent, var(--primary), transparent);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gradient-border:hover::after {
+  opacity: 0.1;
+}
+
+/* ======================== BADGES & TAGS ======================== */
+
+.badge {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* ======================== SCROLLBAR ======================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* ======================== UTILITIES ======================== */
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mt-8 {
+  margin-top: 32px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+/* ======================== LOADING STATES ======================== */
+
+.loading {
+  background: linear-gradient(
+    90deg,
+    var(--bg-light) 25%,
+    rgba(59, 130, 246, 0.1) 50%,
+    var(--bg-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}

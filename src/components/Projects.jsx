@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import projects from '../data/projects'
 
@@ -43,6 +43,35 @@ function ImageWithFallback({ src, fallbackColorA, fallbackColorB, style }) {
 
 export default function Projects() {
   const navigate = useNavigate()
+  const [cardOffsets, setCardOffsets] = useState({})
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const projectsSection = document.getElementById('projects')
+      if (!projectsSection) return
+
+      const cards = projectsSection.querySelectorAll('.card')
+      const newOffsets = {}
+
+      cards.forEach((card, i) => {
+        const cardTop = card.getBoundingClientRect().top
+        const cardBottom = card.getBoundingClientRect().bottom
+        const windowHeight = window.innerHeight
+
+        if (cardTop < windowHeight && cardBottom > 0) {
+          const progress = (windowHeight - cardTop) / (windowHeight + card.offsetHeight)
+          const parallaxValue = (progress - 0.5) * 15 // -7.5px to 7.5px
+          newOffsets[i] = parallaxValue
+        }
+      })
+
+      setCardOffsets(newOffsets)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   
   return (
     <section id="projects" className="section projects" data-aos="zoom-in-up">
@@ -52,7 +81,10 @@ export default function Projects() {
       </div>
       <div className="projects-grid">
         {projects.map((p, i) => (
-          <article className="card" key={p.id} data-aos="flip-left" data-aos-delay={i * 80}>
+          <article className="card" key={p.id} data-aos="flip-left" data-aos-delay={i * 80} style={{
+            transform: `translateY(${cardOffsets[i] || 0}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}>
             <div className="card-media-wrapper">
               <ImageWithFallback 
                 src={p.image}

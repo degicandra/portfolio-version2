@@ -10,6 +10,7 @@ import Contact from './components/Contact'
 import CursorSpotlight from './components/CursorSpotlight'
 import BackToTop from './components/BackToTop'
 import ProjectDetail from './components/ProjectDetail'
+import AnimatedBackground from './components/AnimatedBackground'
 
 export default function App() {
   const sections = [
@@ -72,6 +73,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={
           <div className="app-root" ref={containerRef}>
+            <AnimatedBackground />
             <CursorSpotlight />
             <Sidebar items={sections} active={active} onNavigate={scrollTo} className={sidebarOpen ? 'active' : ''} />
 

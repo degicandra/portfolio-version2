@@ -23,7 +23,7 @@ const COLORS = {
   bg: '#0b0f14',
   panel: '#1a1f28',
   muted: '#9aa4b2',
-  accent: '#7F00FF',
+  accent: '#3b82f6',
   text: '#e6eef6',
   gray: '#d1d5db'
 }
@@ -72,7 +72,7 @@ const styles = {
   container: {
     minHeight: '100vh',
     backgroundColor: COLORS.bg,
-    background: `radial-gradient(ellipse 1400px 700px at 15% 20%, rgba(127,0,255,0.12), transparent 40%), radial-gradient(ellipse 1200px 600px at 85% 80%, rgba(0,219,222,0.08), transparent 40%), linear-gradient(180deg, rgba(127,0,255,0.03), transparent 50%, rgba(0,219,222,0.02))`,
+    background: `radial-gradient(ellipse 1400px 700px at 15% 20%, rgba(59,130,246,0.12), transparent 40%), radial-gradient(ellipse 1200px 600px at 85% 80%, rgba(96,165,250,0.08), transparent 40%), linear-gradient(180deg, rgba(59,130,246,0.03), transparent 50%, rgba(96,165,250,0.02))`,
     backgroundAttachment: 'fixed',
     color: COLORS.text,
     padding: '80px 0'
@@ -339,8 +339,8 @@ export default function GalleryPage() {
           top: '24px',
           left: '24px',
           zIndex: 100,
-          background: 'linear-gradient(135deg, rgba(127,0,255,0.2), rgba(127,0,255,0.1))',
-          border: '1px solid rgba(127,0,255,0.3)',
+          background: 'linear-gradient(135deg, rgba(59,130,246,0.2), rgba(59,130,246,0.1))',
+          border: '1px solid rgba(59,130,246,0.3)',
           borderRadius: '10px',
           padding: '12px 16px',
           color: '#e6eef6',
@@ -353,13 +353,13 @@ export default function GalleryPage() {
           backdropFilter: 'blur(4px)'
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(127,0,255,0.4), rgba(127,0,255,0.2))'
-          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.6)'
+          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(59,130,246,0.4), rgba(59,130,246,0.2))'
+          e.currentTarget.style.borderColor = 'rgba(59,130,246,0.6)'
           e.currentTarget.style.transform = 'translateX(-4px)'
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(127,0,255,0.2), rgba(127,0,255,0.1))'
-          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.3)'
+          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(59,130,246,0.2), rgba(59,130,246,0.1))'
+          e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)'
           e.currentTarget.style.transform = 'translateX(0)'
         }}
         title="Back to home"
@@ -395,8 +395,8 @@ export default function GalleryPage() {
               style={{
                 padding: '10px 24px',
                 borderRadius: '24px',
-                border: '1px solid rgba(127,0,255,0.4)',
-                background: 'linear-gradient(135deg, rgba(127,0,255,0.15), rgba(127,0,255,0.08))',
+                border: '1px solid rgba(59,130,246,0.4)',
+                background: 'linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.08))',
                 color: '#e6eef6',
                 cursor: 'pointer',
                 fontSize: '14px',
@@ -405,13 +405,13 @@ export default function GalleryPage() {
                 backdropFilter: 'blur(4px)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(127,0,255,0.3), rgba(127,0,255,0.18))'
-                e.currentTarget.style.borderColor = 'rgba(127,0,255,0.6)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(59,130,246,0.3), rgba(59,130,246,0.18))'
+                e.currentTarget.style.borderColor = 'rgba(59,130,246,0.6)'
                 e.currentTarget.style.transform = 'translateY(-2px)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(127,0,255,0.15), rgba(127,0,255,0.08))'
-                e.currentTarget.style.borderColor = 'rgba(127,0,255,0.4)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.08))'
+                e.currentTarget.style.borderColor = 'rgba(59,130,246,0.4)'
                 e.currentTarget.style.transform = 'translateY(0)'
               }}
               title="Load more photos"

@@ -58,23 +58,23 @@ export default function Contact() {
           alignItems: 'center',
           gap: '12px',
           padding: '20px',
-          background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))',
-          border: '1px solid rgba(127,0,255,0.1)',
-          borderRadius: '12px',
+          background: 'rgba(26,32,44,0.5)',
+          border: '1px solid rgba(59,130,246,0.1)',
+          borderRadius: '8px',
           textDecoration: 'none',
-          color: '#e6eef6',
-          transition: 'all 0.28s',
+          color: '#e0e5ec',
+          transition: 'all 0.15s',
           cursor: 'pointer'
         }} onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.3)'
-          e.currentTarget.style.background = 'rgba(127,0,255,0.08)'
+          e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)'
+          e.currentTarget.style.background = 'rgba(59,130,246,0.08)'
         }} onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.1)'
-          e.currentTarget.style.background = 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))'
+          e.currentTarget.style.borderColor = 'rgba(59,130,246,0.1)'
+          e.currentTarget.style.background = 'rgba(26,32,44,0.5)'
         }}>
           <div style={{fontSize: '24px', color: '#00d4ff'}}>✉</div>
           <div>
-            <div style={{fontSize: '12px', color: '#9aa4b2'}}>Email</div>
+            <div style={{fontSize: '12px', color: '#a0aec0'}}>Email</div>
             <div style={{fontSize: '14px', fontWeight: '500'}}>degick07@gmail.com</div>
           </div>
         </a>
@@ -84,23 +84,23 @@ export default function Contact() {
           alignItems: 'center',
           gap: '12px',
           padding: '20px',
-          background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))',
-          border: '1px solid rgba(127,0,255,0.1)',
-          borderRadius: '12px',
+          background: 'rgba(26,32,44,0.5)',
+          border: '1px solid rgba(59,130,246,0.1)',
+          borderRadius: '8px',
           textDecoration: 'none',
-          color: '#e6eef6',
-          transition: 'all 0.28s',
+          color: '#e0e5ec',
+          transition: 'all 0.15s',
           cursor: 'pointer'
         }} onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.3)'
-          e.currentTarget.style.background = 'rgba(127,0,255,0.08)'
+          e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)'
+          e.currentTarget.style.background = 'rgba(59,130,246,0.08)'
         }} onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.1)'
-          e.currentTarget.style.background = 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))'
+          e.currentTarget.style.borderColor = 'rgba(59,130,246,0.1)'
+          e.currentTarget.style.background = 'rgba(26,32,44,0.5)'
         }}>
           <div style={{fontSize: '24px', color: '#0a66c2'}}>in</div>
           <div>
-            <div style={{fontSize: '12px', color: '#9aa4b2'}}>LinkedIn</div>
+            <div style={{fontSize: '12px', color: '#a0aec0'}}>LinkedIn</div>
             <div style={{fontSize: '14px', fontWeight: '500'}}>Connect with me</div>
           </div>
         </a>
@@ -118,15 +118,15 @@ export default function Contact() {
           transition: 'all 0.28s',
           cursor: 'pointer'
         }} onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.3)'
-          e.currentTarget.style.background = 'rgba(127,0,255,0.08)'
+          e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)'
+          e.currentTarget.style.background = 'rgba(59,130,246,0.08)'
         }} onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'rgba(127,0,255,0.1)'
-          e.currentTarget.style.background = 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))'
+          e.currentTarget.style.borderColor = 'rgba(59,130,246,0.1)'
+          e.currentTarget.style.background = 'rgba(26,32,44,0.5)'
         }}>
           <div style={{fontSize: '24px', color: '#fff'}}>⚡</div>
           <div>
-            <div style={{fontSize: '12px', color: '#9aa4b2'}}>GitHub</div>
+            <div style={{fontSize: '12px', color: '#a0aec0'}}>GitHub</div>
             <div style={{fontSize: '14px', fontWeight: '500'}}>View my projects</div>
           </div>
         </a>
@@ -143,22 +143,22 @@ export default function Contact() {
             onChange={handleChange}
             required
             style={{
-              background: 'rgba(15,23,32,0.8)',
-              border: '1px solid rgba(255,255,255,0.05)',
+              background: 'rgba(26,32,44,0.6)',
+              border: '1px solid rgba(59,130,246,0.1)',
               padding: '12px 16px',
-              borderRadius: '10px',
-              color: '#e6eef6',
+              borderRadius: '6px',
+              color: '#e0e5ec',
               fontFamily: 'inherit',
               fontSize: '14px',
-              transition: 'all 0.28s'
+              transition: 'all 0.15s'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'rgba(127,0,255,0.3)'
-              e.target.style.background = 'rgba(15,23,32,0.95)'
+              e.target.style.borderColor = 'rgba(59,130,246,0.3)'
+              e.target.style.background = 'rgba(26,32,44,0.8)'
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = 'rgba(255,255,255,0.05)'
-              e.target.style.background = 'rgba(15,23,32,0.8)'
+              e.target.style.borderColor = 'rgba(59,130,246,0.1)'
+              e.target.style.background = 'rgba(26,32,44,0.6)'
             }}
           />
           <input 
@@ -169,22 +169,22 @@ export default function Contact() {
             onChange={handleChange}
             required
             style={{
-              background: 'rgba(15,23,32,0.8)',
-              border: '1px solid rgba(255,255,255,0.05)',
+              background: 'rgba(26,32,44,0.6)',
+              border: '1px solid rgba(59,130,246,0.1)',
               padding: '12px 16px',
-              borderRadius: '10px',
-              color: '#e6eef6',
+              borderRadius: '6px',
+              color: '#e0e5ec',
               fontFamily: 'inherit',
               fontSize: '14px',
-              transition: 'all 0.28s'
+              transition: 'all 0.15s'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'rgba(127,0,255,0.3)'
-              e.target.style.background = 'rgba(15,23,32,0.95)'
+              e.target.style.borderColor = 'rgba(59,130,246,0.3)'
+              e.target.style.background = 'rgba(26,32,44,0.8)'
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = 'rgba(255,255,255,0.05)'
-              e.target.style.background = 'rgba(15,23,32,0.8)'
+              e.target.style.borderColor = 'rgba(59,130,246,0.1)'
+              e.target.style.background = 'rgba(26,32,44,0.6)'
             }}
           />
           <textarea 
@@ -194,52 +194,52 @@ export default function Contact() {
             onChange={handleChange}
             required
             style={{
-              background: 'rgba(15,23,32,0.8)',
-              border: '1px solid rgba(255,255,255,0.05)',
+              background: 'rgba(26,32,44,0.6)',
+              border: '1px solid rgba(59,130,246,0.1)',
               padding: '12px 16px',
-              borderRadius: '10px',
-              color: '#e6eef6',
+              borderRadius: '6px',
+              color: '#e0e5ec',
               fontFamily: 'inherit',
               fontSize: '14px',
               minHeight: '120px',
               resize: 'vertical',
-              transition: 'all 0.28s'
+              transition: 'all 0.15s'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'rgba(127,0,255,0.3)'
-              e.target.style.background = 'rgba(15,23,32,0.95)'
+              e.target.style.borderColor = 'rgba(59,130,246,0.3)'
+              e.target.style.background = 'rgba(26,32,44,0.8)'
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = 'rgba(255,255,255,0.05)'
-              e.target.style.background = 'rgba(15,23,32,0.8)'
+              e.target.style.borderColor = 'rgba(59,130,246,0.1)'
+              e.target.style.background = 'rgba(26,32,44,0.6)'
             }}
           />
           <button 
             type="submit"
             disabled={isLoading}
             style={{
-              background: isLoading ? 'rgba(127,0,255,0.5)' : 'linear-gradient(90deg, #7f00ff, #e100ff)',
+              background: isLoading ? 'rgba(59,130,246,0.5)' : '#3b82f6',
               border: 'none',
               padding: '12px 24px',
-              borderRadius: '10px',
-              color: '#000',
-              fontWeight: '600',
+              borderRadius: '6px',
+              color: '#fff',
+              fontWeight: '500',
               cursor: isLoading ? 'not-allowed' : 'pointer',
               fontSize: '14px',
-              transition: 'all 0.28s',
-              boxShadow: '0 4px 12px rgba(127,0,255,0.2)',
+              transition: 'all 0.15s',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
               opacity: isLoading ? 0.7 : 1
             }}
             onMouseEnter={(e) => {
               if (!isLoading) {
-                e.target.style.transform = 'translateY(-2px)'
-                e.target.style.boxShadow = '0 8px 20px rgba(127,0,255,0.3)'
+                e.target.style.background = '#2563eb'
+                e.target.style.boxShadow = '0 2px 6px rgba(0,0,0,0.25)'
               }
             }}
             onMouseLeave={(e) => {
               if (!isLoading) {
-                e.target.style.transform = 'translateY(0)'
-                e.target.style.boxShadow = '0 4px 12px rgba(127,0,255,0.2)'
+                e.target.style.background = '#3b82f6'
+                e.target.style.boxShadow = '0 1px 3px rgba(0,0,0,0.2)'
               }
             }}
           >
@@ -274,14 +274,14 @@ export default function Contact() {
           {/* Modal Content */}
           <div style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, rgba(15,23,32,0.95), rgba(31,41,55,0.95))',
-            border: '1px solid rgba(127,0,255,0.2)',
-            borderRadius: '16px',
+            background: 'rgba(22,28,38,0.95)',
+            border: '1px solid rgba(59,130,246,0.15)',
+            borderRadius: '8px',
             padding: '40px 32px',
             maxWidth: '400px',
             width: '90%',
-            boxShadow: '0 20px 60px rgba(127,0,255,0.2)',
-            animation: 'slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(59,130,246,0.1)',
+            animation: 'slideUp 0.4s ease-out',
             textAlign: 'center'
           }}>
             {/* Icon Container */}
@@ -359,7 +359,7 @@ export default function Contact() {
             {/* Description */}
             <p style={{
               margin: '0 0 24px 0',
-              color: '#9aa4b2',
+              color: '#a0aec0',
               fontSize: '14px',
               lineHeight: '1.6'
             }}>
@@ -372,23 +372,21 @@ export default function Contact() {
             <button
               onClick={() => setModalOpen(false)}
               style={{
-                background: isSuccess ? 'rgba(34,197,94,0.2)' : 'rgba(239,68,68,0.2)',
-                border: `1px solid ${isSuccess ? 'rgba(34,197,94,0.5)' : 'rgba(239,68,68,0.5)'}`,
+                background: isSuccess ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)',
+                border: `1px solid ${isSuccess ? 'rgba(34,197,94,0.3)' : 'rgba(239,68,68,0.3)'}`,
                 color: isSuccess ? '#22c55e' : '#ef4444',
                 padding: '10px 24px',
-                borderRadius: '8px',
-                fontWeight: '600',
+                borderRadius: '6px',
+                fontWeight: '500',
                 fontSize: '14px',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.15s ease'
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = isSuccess ? 'rgba(34,197,94,0.3)' : 'rgba(239,68,68,0.3)'
-                e.target.style.transform = 'translateY(-2px)'
+                e.target.style.background = isSuccess ? 'rgba(34,197,94,0.15)' : 'rgba(239,68,68,0.15)'
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = isSuccess ? 'rgba(34,197,94,0.2)' : 'rgba(239,68,68,0.2)'
-                e.target.style.transform = 'translateY(0)'
+                e.target.style.background = isSuccess ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)'
               }}
             >
               Close
